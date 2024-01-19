@@ -1,0 +1,68 @@
+<p>rendering a component</p>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Car />);
+
+
+
+<p>props</p>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Car(props) {
+  return <h2>I am a {props.color} Car!</h2>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Car color="red"/>);
+
+
+
+<p>components in components</p>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Car() {
+  return <h2>I am a Car!</h2>;
+}
+
+function Garage() {
+  return (
+    <>
+	    <h1>Who lives in my Garage?</h1>
+	    <Car />
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Garage />);
+
+
+
+<p>components in files</p>
+
+<p>Car.js file </p>
+
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+
+export default Car;
+
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Car from './Car.js';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Car />);
