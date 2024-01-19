@@ -1,0 +1,34 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<p>Hello</p>);
+
+
+
+<P>HTML code</p>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<p>Hello</p>);
+
+
+
+<p>Root Node</p>
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const container = document.getElementById('sandy');
+const root = ReactDOM.createRoot(container);
+root.render(<p>Hallo</p>);
+
+/*
+For this example to work on your project,
+you must have a element with
+id="sandy" on your "index.html" page.
+*/
