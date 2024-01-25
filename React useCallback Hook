@@ -1,0 +1,70 @@
+// index.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App'; // Adjust the path based on your project structure
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+
+
+
+//App.js
+
+import React, { useState, useCallback } from 'react'
+
+import Tasks from './Tasks';
+
+
+const App = () => {
+
+    const [count, setCount] = useState(0);
+    const [tasks, setTasks] = useState([]);
+
+    const increment = () => {
+        setCount((c) => c + 1);
+    };
+    const addTask = useCallback(() => {
+        setTasks((t) => [...t, "New Task"]);
+    }, [tasks]);
+
+    return (
+        <div>
+            <div className="first">
+                <Tasks tasks={tasks} addTask={addTask} />
+            </div>
+            <div className="second">
+                Count: {count}
+                <button onClick={increment}>Increment</button>
+            </div>
+        </div>
+    )
+}
+
+export default App
+
+
+
+Tasks.js
+
+import React, {memo} from 'react'
+
+const Tasks = ({ tasks, addTask }) => {
+    console.log("child rendered");
+    return (
+        <div>
+            <h2>Tasks list</h2>
+            {tasks.map((task, i) => (
+                <p key={i}>{task}</p>
+            ))}
+            <button onClick={addTask}>Add Task</button>
+        </div>
+    )
+}
+
+export default memo(Tasks)
